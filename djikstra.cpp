@@ -12,26 +12,21 @@ int main() {
     
     int n, m;
     cin >> n >> m;
-    vector<vector<int>> arestas(m, vector<int>(3));
-    for (int i = 0; i < m; i++) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        // arestas[i][0] = a;
-        // arestas[i][1] = b;
-        // arestas[i][2] = c;
-        arestas[i].push_back(a);
-        arestas[i].push_back(b);
-        arestas[i].push_back(c);
+
+    vector<vector<pair<int, int>>> adj(n);
+
+    for (int i = 0; i < n; ++i) {
+        adj[i] = vector<pair<int, int>>();
     }
 
-    for (int i = 0; i < m; i++) {
-        cout << arestas[i][0] << " " << arestas[i][1] << " " << arestas[i][2] << endl;
+    int v1, v2, w;
+    for (int i = 0; i < m; ++i) {
+        cin >> v1 >> v2 >> w;
+        adj[v1].push_back(make_pair(v2, w));
+        adj[v2].push_back(make_pair(v1, w));
     }
 
     
-
-
-
 
     return 0;
 }
