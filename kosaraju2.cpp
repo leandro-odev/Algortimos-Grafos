@@ -24,7 +24,7 @@ void dfs_reverse(int node, vector<int> &vis, vector<int> adj[], vector<int> &com
     }
 }
 
-int kosaraju(int V, vector<int> adj[], vector<vector<int>> &sccs) {
+int kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
     vector<int> vis(V, 0);
     stack<int> st;
 
@@ -48,10 +48,10 @@ int kosaraju(int V, vector<int> adj[], vector<vector<int>> &sccs) {
         if (!vis[node]) {
             vector<int> component;
             dfs_reverse(node, vis, adjT, component);
-            sccs.push_back(component);
+            cfcs.push_back(component);
         }
     }
-    return sccs.size();
+    return cfcs.size();
 }
 
 int main() {
@@ -65,16 +65,16 @@ int main() {
         adj[v1].push_back(v2);
     }
 
-    vector<vector<int>> sccs;
-    int ans = kosaraju(n, adj, sccs);
+    vector<vector<int>> cfcs;
+    int cfc = kosaraju(n, adj, cfcs);
 
-    cout << "The number of strongly connected components is: " << ans << endl;
+    cout << "The number of strongly connected components is: " << cfc << endl;
 
     cout << "Strongly connected components:\n";
-    for (int i = 0; i < sccs.size(); ++i) {
+    for (int i = 0; i < cfcs.size(); ++i) {
         cout << "Component " << i + 1 << ": ";
-        for (int j = 0; j < sccs[i].size(); ++j) {
-            cout << sccs[i][j] << " ";
+        for (int j = 0; j < cfcs[i].size(); ++j) {
+            cout << cfcs[i][j] << " ";
         }
         cout << endl;
     }
