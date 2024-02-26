@@ -7,7 +7,6 @@ Welcome to the Graph Algorithms Repository! This repository contains implementat
 - [Algorithms](#algorithms)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 Graphs are versatile data structures used to represent connections between objects. Graph algorithms play a crucial role in solving a wide range of problems in computer science and beyond. This repository aims to provide implementations of fundamental graph algorithms to help you understand and utilize them in your projects.
@@ -16,6 +15,7 @@ Graphs are versatile data structures used to represent connections between objec
 The following graph algorithms are currently implemented in this repository:
 - Dijkstra's Algorithm
 - Kosaraju's Algorithm
+- Bellman-Ford's Algorithm
 
 ## Usage
 To use the implementations in this repository, follow these steps:
