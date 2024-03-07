@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
         fout.close();
     }
 
-    cout << "Result: " << result.first << endl;
+    cout << result.first << endl;
     if (show_output) {
         for (auto &edge : result.second) {
             cout << "(" << edge.first << ", " << edge.second << ") ";
