@@ -9,13 +9,15 @@ Welcome to the Graph Algorithms Repository! This repository contains implementat
 - [Contributing](#contributing)
 
 ## Introduction
-Graphs are versatile data structures used to represent connections between objects. Graph algorithms play a crucial role in solving a wide range of problems in computer science and beyond. This repository aims to provide implementations of fundamental graph algorithms to help you understand and utilize them in your projects.
+Graphs are versatile data structures used to represent connections between objects. Graph algorithms play a crucial role in solving a wide range of problems in computer science and beyond. This repository aims to provide implementations of some graph algorithms to the subject "Graph Theory" at the Federal University of Alagoas - UFAL.
 
 ## Algorithms
 The following graph algorithms are currently implemented in this repository:
+- Bellman-Ford's Algorithm
 - Dijkstra's Algorithm
 - Kosaraju's Algorithm
-- Bellman-Ford's Algorithm
+- Kruskal's Algorithm
+- Prim's Algorithm
 
 ## Usage
 To use the implementations in this repository, follow these steps:
