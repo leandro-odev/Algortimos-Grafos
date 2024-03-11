@@ -2,6 +2,8 @@
 #include <vector>
 #include <stack>
 #include <algorithm>
+#include <cstring>
+#include <fstream>
 using namespace std;
 
 void dfs(int node, vector<int> &vis, vector<int> adj[], stack<int> &st) {
@@ -54,13 +56,54 @@ int kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
     return cfcs.size();
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    string input_file = "";
+    string output_file = "";
+    bool show_output = false;
+    int start_node = 1;
+
+    for (int i=1; i<argc ; i++){
+        if(strcmp(argv[i], "-h") == 0){
+            cout << "Help" << endl;
+            cout << "-h: mostra help" << endl;
+            cout << "-o <arquivo>: redireciona a saída para o arquivo" << endl;
+            cout << "-f <arquivo>: lê o grafo do arquivo" << endl;
+            cout << "-s : mostra a solução" << endl;
+            cout << "-i : vértice inicial" << endl;
+
+            return 0;
+
+        } else if(strcmp(argv[i], "-o") == 0){
+            output_file = argv[i+1];
+        }
+        else if(strcmp(argv[i], "-f") == 0){
+            input_file = argv[i+1];
+        }
+        else if(strcmp(argv[i], "-s") == 0){
+            show_output = true;
+        }
+        else if(strcmp(argv[i], "-i") == 0){
+            start_node = atoi(argv[i+1]);
+        }
+    }
+
+    if (input_file == ""){
+        cout << "No input file specified. Use the -f parameter" << endl;
+        return 1;
+    }
+    ifstream fin(input_file);
+    if(!fin){
+        cerr << "Could not open input file: " << input_file << endl;
+        return 1;
+    }
+
     int n, m;
     cin >> n >> m;
 
     vector<int> adj[n];
+    int v1, v2, w;
     for (int i = 0; i < m; ++i) {
-        int v1, v2, w;
         cin >> v1 >> v2 >> w;
         adj[v1].push_back(v2);
     }

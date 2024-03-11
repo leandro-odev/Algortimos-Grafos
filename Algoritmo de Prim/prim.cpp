@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     string input_file = "";
     string output_file = "";
     bool show_output = false;
-    int start_node = 1; // so tava dando erro pq aqui tava 0 pqp
+    int start_node = 1; // so tava dando erro pq aqui tava 0
 
     for (int i =1; i<argc ; i++){
         if(strcmp(argv[i], "-h") == 0){
