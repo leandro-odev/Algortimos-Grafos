@@ -7,7 +7,7 @@ using namespace std;
 
 int infinite = 1000000;
 
-void djikstra (vector<vector<pair<int, int>>> & adj, int s) {
+string djikstra (vector<vector<pair<int, int>>> & adj, int s) {
 
     int n = adj.size();
     vector<int> dist(n, infinite);
@@ -34,16 +34,23 @@ void djikstra (vector<vector<pair<int, int>>> & adj, int s) {
         }
     }
 
-    cout << "Distances from " << s << endl;
+    // cout << "Distances from " << s << endl;
+    // for (int i = 0; i < n; ++i) {
+    //     cout << "dist[" << i << "] = " << dist[i] << endl;
+    // }
+
+    string distances = "1 ";
     for (int i = 0; i < n; ++i) {
-        cout << "dist[" << i << "] = " << dist[i] << endl;
+        distances += to_string(i) + ":" + to_string(dist[i]) + " ";
     }
+    cout << distances << endl;
+    return distances;
 }
 
 int main(int argc, char *argv[]) {
     string input_file = "";
     string output_file = "";
-    bool show_output = true;
+    string show_output = "result";
     int start_node = 1;
 
     for (int i=1; i<argc ; i++){
@@ -90,7 +97,30 @@ int main(int argc, char *argv[]) {
 
     fin.close();
 
-    djikstra(adj, start_node);
+    string distances = djikstra(adj, start_node);
+
+    if(!(output_file == "")){
+        ofstream fout(output_file);
+        if(!fout){
+            cerr << "Could not open output file: " << output_file << endl;
+            return 1;
+        }
+        fout << distances;
+        fout << endl;
+
+        fout.close();
+    }
+
+    if (show_output == "result") {
+        cout << distances << endl;
+    }
+    
+    if (show_output == "vertices") {
+        for(int i = 1; i < n; i++){
+            cout << i << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
