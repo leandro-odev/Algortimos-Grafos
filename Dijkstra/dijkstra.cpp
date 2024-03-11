@@ -41,9 +41,13 @@ string djikstra (vector<vector<pair<int, int>>> & adj, int s) {
 
     string distances = "1 ";
     for (int i = 0; i < n; ++i) {
-        distances += to_string(i) + ":" + to_string(dist[i]) + " ";
+        if(dist[i] != infinite) {
+            distances += to_string(i) + ":" + to_string(dist[i]) + " ";
+        }
+        else {
+            distances += to_string(i) + ":" + "-1" + " ";
+        }
     }
-    cout << distances << endl;
     return distances;
 }
 

@@ -7,7 +7,7 @@ using namespace std;
 
 int infinite = 1000000;
 
-void bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
+string bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
     int n = adj.size();
     vector<int> dist(n, infinite);
     dist[s] = 0;
@@ -22,16 +22,16 @@ void bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
         }
     }
 
-    cout << "Distances from " << s << ":" << endl;
+    string distances = "1 ";
     for (int i = 0; i < n; ++i) {
         if(dist[i] != infinite) {
-            cout << "dist[" << i << "] = " << dist[i] << endl;
+            distances += to_string(i) + ":" + to_string(dist[i]) + " ";
         }
         else {
-            cout << "dist[" << i << "] = " << "infinite" << endl;
-        
+            distances += to_string(i) + ":" + "-1" + " ";
         }
     }
+    return distances;
 }
 
 int main(int argc, char *argv[]) {
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
     fin.close();
 
     //bellman_ford(adj, 0);
-    bellmanFord(adj, 0);
+    string distances = bellmanFord(adj, 0);
 
     return 0;
 }
