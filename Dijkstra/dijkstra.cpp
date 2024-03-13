@@ -115,16 +115,5 @@ int main(int argc, char *argv[]) {
         fout.close();
     }
 
-    if (show_output == "result") {
-        cout << distances << endl;
-    }
-    
-    if (show_output == "vertices") {
-        for(int i = 1; i < n; i++){
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-
     return 0;
 }
