@@ -26,7 +26,7 @@ void dfs_reverse(int node, vector<int> &vis, vector<int> adj[], vector<int> &com
     }
 }
 
-int kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
+string kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
     vector<int> vis(V, 0);
     stack<int> st;
 
@@ -53,7 +53,19 @@ int kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
             cfcs.push_back(component);
         }
     }
-    return cfcs.size();
+
+    string result = "";
+    for (int i = 0; i < cfcs.size(); ++i) {
+        for (int j = 0; j < cfcs[i].size(); ++j) {
+            result += to_string(cfcs[i][j]);
+            if(j < cfcs[i].size() - 1) {
+                result += " ";
+            }
+        }
+        result += "\n";
+    }
+
+    return result;
 }
 
 int main(int argc, char *argv[]) {
@@ -109,17 +121,20 @@ int main(int argc, char *argv[]) {
     }
 
     vector<vector<int>> cfcs;
-    int cfc = kosaraju(n, adj, cfcs);
+    string result = kosaraju(n, adj, cfcs);
 
-    for (int i = 0; i < cfc; ++i) {
-        for (int j = 0; j < cfcs[i].size(); ++j) {
-            cout << cfcs[i][j];
-            if(j < cfcs[i].size() - 1) {
-                cout << " ";
-            }
+    if(!(output_file == "")){
+        ofstream fout(output_file);
+        if(!fout){
+            cerr << "Could not open output file: " << output_file << endl;
+            return 1;
         }
-        cout << endl;
+        fout << result;
+        fout << endl;
+
+        fout.close();
     }
+    cout << result << endl;
 
     return 0;
 }
