@@ -111,13 +111,12 @@ int main(int argc, char *argv[]) {
     vector<vector<int>> cfcs;
     int cfc = kosaraju(n, adj, cfcs);
 
-    cout << "The number of strongly connected components is: " << cfc << endl;
-
-    cout << "Strongly connected components:\n";
-    for (int i = 0; i < cfcs.size(); ++i) {
-        cout << "Component " << i + 1 << ": ";
+    for (int i = 0; i < cfc; ++i) {
         for (int j = 0; j < cfcs[i].size(); ++j) {
-            cout << cfcs[i][j] << " ";
+            cout << cfcs[i][j];
+            if(j < cfcs[i].size() - 1) {
+                cout << " ";
+            }
         }
         cout << endl;
     }
