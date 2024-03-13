@@ -81,8 +81,6 @@ int main(int argc, char *argv[]) {
             cout << "-h: mostra help" << endl;
             cout << "-o <arquivo>: redireciona a saída para o arquivo" << endl;
             cout << "-f <arquivo>: lê o grafo do arquivo" << endl;
-            cout << "-s : mostra a solução" << endl;
-            cout << "-i : vértice inicial" << endl;
 
             return 0;
 
@@ -91,12 +89,6 @@ int main(int argc, char *argv[]) {
         }
         else if(strcmp(argv[i], "-f") == 0){
             input_file = argv[i+1];
-        }
-        else if(strcmp(argv[i], "-s") == 0){
-            show_output = true;
-        }
-        else if(strcmp(argv[i], "-i") == 0){
-            start_node = atoi(argv[i+1]);
         }
     }
 
@@ -111,12 +103,12 @@ int main(int argc, char *argv[]) {
     }
 
     int n, m;
-    cin >> n >> m;
+    fin >> n >> m;
 
     vector<int> adj[n];
     int v1, v2, w;
     for (int i = 0; i < m; ++i) {
-        cin >> v1 >> v2 >> w;
+        fin >> v1 >> v2 >> w;
         adj[v1].push_back(v2);
     }
 
