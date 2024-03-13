@@ -22,8 +22,8 @@ string bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
         }
     }
 
-    string distances = "1 ";
-    for (int i = 0; i < n; ++i) {
+    string distances = "";
+    for (int i = 1; i < n; ++i) {
         if(dist[i] != infinite) {
             distances += to_string(i) + ":" + to_string(dist[i]) + " ";
         }
@@ -93,8 +93,20 @@ int main(int argc, char *argv[]) {
     }
     fin.close();
 
-    //bellman_ford(adj, 0);
     string distances = bellmanFord(adj, 0);
+
+    if(!(output_file == "")){
+        ofstream fout(output_file);
+        if(!fout){
+            cerr << "Could not open output file: " << output_file << endl;
+            return 1;
+        }
+        fout << distances;
+        fout << endl;
+
+        fout.close();
+    }
+    cout << distances << endl;
 
     return 0;
 }
