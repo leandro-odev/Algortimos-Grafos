@@ -54,7 +54,7 @@ string djikstra (vector<vector<pair<int, int>>> & adj, int s) {
 int main(int argc, char *argv[]) {
     string input_file = "";
     string output_file = "";
-    string show_output = "result";
+    string show_output = "";
     int start_node = 1;
 
     for (int i=1; i<argc ; i++){
@@ -114,6 +114,7 @@ int main(int argc, char *argv[]) {
 
         fout.close();
     }
+    cout << distances << endl;
 
     return 0;
 }
