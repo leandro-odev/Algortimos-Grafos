@@ -6,7 +6,7 @@
 #include <fstream>
 using namespace std;
 
-void dfs(int node, vector<int> &vis, vector<int> adj[], stack<int> &st) {
+void dfs(int node, vector<int> &vis, vector<vector<int>> &adj, stack<int> &st) {
     vis[node] = 1;
     for (auto it : adj[node]) {
         if (!vis[it]) {
@@ -16,7 +16,7 @@ void dfs(int node, vector<int> &vis, vector<int> adj[], stack<int> &st) {
     st.push(node);
 }
 
-void dfs_reverse(int node, vector<int> &vis, vector<int> adj[], vector<int> &component) {
+void dfs_reverse(int node, vector<int> &vis, vector<vector<int>> &adj, vector<int> &component) {
     vis[node] = 1;
     component.push_back(node);
     for (auto it : adj[node]) {
@@ -26,7 +26,7 @@ void dfs_reverse(int node, vector<int> &vis, vector<int> adj[], vector<int> &com
     }
 }
 
-string kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
+string kosaraju(int V, vector<vector<int>> &adj, vector<vector<int>> &cfcs) {
     vector<int> vis(V, 0);
     stack<int> st;
 
@@ -36,7 +36,7 @@ string kosaraju(int V, vector<int> adj[], vector<vector<int>> &cfcs) {
         }
     }
 
-    vector<int> adjT[V];
+    vector<vector<int>> adjT(V);
     for (int i = 0; i < V; i++) {
         vis[i] = 0;
         for (auto it : adj[i]) {
@@ -72,8 +72,6 @@ int main(int argc, char *argv[]) {
 
     string input_file = "";
     string output_file = "";
-    bool show_output = false;
-    int start_node = 1;
 
     for (int i=1; i<argc ; i++){
         if(strcmp(argv[i], "-h") == 0){
@@ -105,10 +103,10 @@ int main(int argc, char *argv[]) {
     int n, m;
     fin >> n >> m;
 
-    vector<int> adj[n];
-    int v1, v2, w;
+    vector<vector<int>> adj(n);
+    int v1, v2;
     for (int i = 0; i < m; ++i) {
-        fin >> v1 >> v2 >> w;
+        fin >> v1 >> v2;
         adj[v1].push_back(v2);
     }
 
