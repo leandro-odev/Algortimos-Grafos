@@ -39,7 +39,7 @@ string djikstra (vector<vector<pair<int, int>>> & adj, int s) {
     //     cout << "dist[" << i << "] = " << dist[i] << endl;
     // }
 
-    string distances = "1 ";
+    string distances = "";
     for (int i = 0; i < n; ++i) {
         if(dist[i] != infinite) {
             distances += to_string(i) + ":" + to_string(dist[i]) + " ";
