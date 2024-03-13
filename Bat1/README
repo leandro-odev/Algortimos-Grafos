@@ -1,7 +1,8 @@
 Conteúdo
-- Consjunto de instâncias (instances)
+- Consjunto de instâncias (instances e instances_scc)
 - Soluções do problema da árvore geradora mínima (gabarito_agm.txt)
 - Soluções do problema do caminho mínimo (diretório sp)
+- Soluções do problema componentes fortemente conexas (diretório scc)
 - Script para testar as soluções
 
 Para executar o script compile seu binários. Se preciso atualize os nomes dos arquivos no início do script.

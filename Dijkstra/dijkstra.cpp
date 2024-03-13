@@ -40,7 +40,7 @@ string djikstra (vector<vector<pair<int, int>>> & adj, int s) {
     // }
 
     string distances = "";
-    for (int i = 0; i < n; ++i) {
+    for (int i = 1; i < n; ++i) {
         if(dist[i] != infinite) {
             distances += to_string(i) + ":" + to_string(dist[i]) + " ";
         }
