@@ -72,6 +72,7 @@ void kosaraju(int n, vector<int> adj[], vector<vector<int>> &cfcs)
 
 int main(int argc, char *argv[])
 {
+    int start_node = 1;
     string input_file = "";
     string output_file = "null";
 
@@ -83,7 +84,7 @@ int main(int argc, char *argv[])
             cout << "-h: mostra help" << endl;
             cout << "-o <arquivo>: redireciona a saída para o arquivo" << endl;
             cout << "-f <arquivo>: lê o grafo do arquivo" << endl;
-
+            cout << "-i: vértice inicial << endl";
             return 0;
         }
         else if (strcmp(argv[i], "-o") == 0)
@@ -93,6 +94,8 @@ int main(int argc, char *argv[])
         else if (strcmp(argv[i], "-f") == 0)
         {
             input_file = argv[i + 1];
+        } else if(strcmp(argv[i], "-i") == 0){
+            start_node = atoi(argv[i+1]);
         }
     }
 
@@ -139,23 +142,35 @@ int main(int argc, char *argv[])
         }
         for (const auto &cfc : cfcs)
         {
+            int contador = 0;
             for (int node : cfc)
             {
-                fout << node + 1 << " "; // Adjusting indices to start from 1
+                if (contador == cfc.size() - 1) {
+                    fout << node + 1;
+                } else {
+                    fout << node + 1 << " ";
+                }
+                contador++;
             }
             fout << endl;
         }
 
         fout.close();
-    }
-
-    for (const auto &cfc : cfcs)
-    {
-        for (int node : cfc)
+    } else {
+        for (const auto &cfc : cfcs)
         {
-            cout << node + 1 << " "; // Adjusting indices to start from 1
+            int contador = 0;
+            for (int node : cfc)
+            {
+                if (contador == cfc.size() - 1) {
+                    cout << node + 1;
+                } else {
+                    cout << node + 1 << " ";
+                }
+                contador++; // Adjusting indices to start from 1
+            }
+            cout << endl;
         }
-        cout << endl;
     }
 
     return 0;
