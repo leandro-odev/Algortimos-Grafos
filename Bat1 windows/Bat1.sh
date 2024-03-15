@@ -31,7 +31,7 @@ do
 	correto=$(grep $i gabarito_agm.txt | cut -d ' ' -f 2);
 	[ $val -eq $correto ] && echo -e "Custo \e[32mOK\e[0m" || echo  -e "\e[31mCusto incorreto\e[0m";
 
-	$kruskal -f $i -s | sed -e 's/ /\n/g' -e 's/,/ /g' -e 's/[()]//g' | ./agm $i
+	$kruskal -f $i -s | sed -e 's/ /\n/g' -e 's/,/ /g' -e 's/[()]//g' | ./agm.exe $i
 	if [ $? -eq 0 ]; then
 		echo -e "\e[32mOK\e[0m"
 	else
@@ -51,7 +51,7 @@ do
 	correto=$(grep $i gabarito_agm.txt | cut -d ' ' -f 2);
 	[ $val -eq $correto ] && echo -e "Custo \e[32mOK\e[0m" || echo  -e "\e[31mCusto incorreto\e[0m";
 
-	$prim -f $i -s | sed -e 's/ /\n/g' -e 's/,/ /g' -e 's/[()]//g' | ./agm $i
+	$prim -f $i -s | sed -e 's/ /\n/g' -e 's/,/ /g' -e 's/[()]//g' | ./agm.exe $i
 	if [ $? -eq 0 ]; then
 		echo -e "\e[32mOK\e[0m"
 	else
