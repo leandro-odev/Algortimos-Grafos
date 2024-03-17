@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
     int n, m; // numero de vertices e arestas
     fin >> n >> m;
 
-    vector<vector<pair<int, int>>> adj(n); // matriz que emula um grafo
+    vector<vector<pair<int, int>>> adj(n+1); // matriz que emula um grafo
 
     // lendo as arestas
     for (int i = 0; i < n; ++i) {
@@ -83,12 +83,13 @@ int main(int argc, char *argv[]) {
     int v1, v2, w;
     for (int i = 0; i < m; ++i) {
         fin >> v1 >> v2 >> w;
+        cout << v1 << " "<< v2 << " " << w << endl;
         adj[v1].push_back(make_pair(v2, w));
         adj[v2].push_back(make_pair(v1, w));
     }
     fin.close();
-
-    string distances = bellmanFord(adj, 0);
+    
+    string distances = bellmanFord(adj, 1);
 
     if(!(output_file == "")){
         ofstream fout(output_file);
