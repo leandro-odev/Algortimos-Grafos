@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < m; ++i) {
         fin >> v1 >> v2 >> w;
         adj[v1].push_back(make_pair(v2, w));
-        adj[v2].push_back(make_pair(v1, w));
+        
     }
     fin.close();
     
