@@ -83,7 +83,6 @@ int main(int argc, char *argv[]) {
     int v1, v2, w;
     for (int i = 0; i < m; ++i) {
         fin >> v1 >> v2 >> w;
-        cout << v1 << " "<< v2 << " " << w << endl;
         adj[v1].push_back(make_pair(v2, w));
         adj[v2].push_back(make_pair(v1, w));
     }
