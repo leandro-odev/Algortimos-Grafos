@@ -14,8 +14,8 @@ void dfs(int node, vector<int> &vis, vector<int> adj[], stack<int> &stack)
         {
             dfs(i, vis, adj, stack);
         }
-        stack.push(node);
     }
+    stack.push(node);
 }
 
 void dfs_reverse(int node, vector<int> &vis, vector<int> adjReverse[], vector<int> &component)
