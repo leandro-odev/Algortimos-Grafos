@@ -15,6 +15,6 @@
 - Algoritmos organizados por diretório
 - Menu de suporte pode ser chamado com `-h`
 - O algoritmo de Bellman-Ford conta com diretórios de casos de teste e gabarito dos casos teste, de um total de 20 casos.
-- Diretorio `Helpers` conta com scripts em python de geradores de grafos para o algoritmo de Bellman-Ford.
+- Diretório `Helpers` conta com scripts em python de geradores de grafos para o algoritmo de Bellman-Ford.
 
 <small>Alunos: Caio Agra Lemos e Leandro Wanderley<br>UFAL - 2023.2 | Professor Rian</small>
