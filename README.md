@@ -1,34 +1,20 @@
-# Graph Algorithms Repository
+# Projeto de Teoria dos Grafos
 
-Welcome to the Graph Algorithms Repository! This repository contains implementations of various graph algorithms in C++.
+### Algoritmos Escolhidos:
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Algorithms](#algorithms)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- Algoritmo de Dijkstra
+- Algoritmo de Kosaraju
+- Algoritmo de Kruskal
+- Algoritmo de Prim
+- Algoritmo de Bellman-Ford
 
-## Introduction
-Graphs are versatile data structures used to represent connections between objects. Graph algorithms play a crucial role in solving a wide range of problems in computer science and beyond. This repository aims to provide implementations of some graph algorithms to the subject "Graph Theory" at the Federal University of Alagoas - UFAL.
+### Especificações:
 
-## Algorithms
-The following graph algorithms are currently implemented in this repository:
-- Bellman-Ford's Algorithm
-- Dijkstra's Algorithm
-- Kosaraju's Algorithm
-- Kruskal's Algorithm
-- Prim's Algorithm
+- Desenvolvido em C++
+- Makefiles implementados que geram arquivo bin (make no diretório /Dijkstra cria o arquivo `dijkstra`)
+- Algoritmos organizados por diretório
+- Menu de suporte pode ser chamado com `-h`
+- O algoritmo de Bellman-Ford conta com diretórios de casos de teste e gabarito dos casos teste, de um total de 20 casos.
+- Diretorio `Helpers` conta com scripts em python de geradores de grafos para o algoritmo de Bellman-Ford.
 
-## Usage
-To use the implementations in this repository, follow these steps:
-1. Clone the repository to your local machine.
-2. Navigate to the directory containing the desired algorithm implementation.
-3. Compile the source code using a C++ compiler (e.g., g++).
-4. Execute the compiled binary to run the algorithm on your input graph.
-
-Example:
-```bash
-git clone https://github.com/your-username/graph-algorithms.git
-cd graph-algorithms
-g++ dijkstra.cpp -o dijkstra
-./dijkstra
+<small>Alunos: Caio Agra Lemos e Leandro Wanderley<br>UFAL - 2023.2 | Professor Rian</small>
